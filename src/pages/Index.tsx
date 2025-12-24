@@ -46,21 +46,21 @@ const Index = () => {
     <div className="min-h-screen">
       <Navigation />
 
-      <section className="relative pt-32 pb-20 px-6 min-h-[600px] flex items-center">
+      <section className="relative pt-32 pb-20 px-6 min-h-[90vh] flex items-center">
         <div className="absolute inset-0 z-0">
           <img
-            src="https://cdn.poehali.dev/projects/a5effef7-dda4-4ae7-afee-f504e635df80/files/8262d4bc-fa73-49b2-8e41-76b095e6d90d.jpg"
+            src="https://cdn.poehali.dev/projects/a5effef7-dda4-4ae7-afee-f504e635df80/files/ed7c2865-918b-4983-b279-4ab032332947.jpg"
             alt="Премиальные ткани"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/85 to-background/60"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/55 to-black/35"></div>
         </div>
         <div className="container mx-auto relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-foreground">
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white drop-shadow-lg">
               Добро пожаловать в Exooo Ткани
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground mb-12 leading-relaxed">
+            <p className="text-xl md:text-2xl text-white/95 mb-12 leading-relaxed drop-shadow-md">
               Магазин, где легко найти материал для любой идеи и настроения
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -70,7 +70,7 @@ const Index = () => {
                 </Button>
               </a>
               <Link to="/contacts">
-                <Button size="lg" variant="outline" className="text-lg px-8">
+                <Button size="lg" variant="outline" className="text-lg px-8 bg-white/10 backdrop-blur-sm text-white border-white/60 hover:bg-white/20 hover:border-white">
                   Связаться с нами
                 </Button>
               </Link>
