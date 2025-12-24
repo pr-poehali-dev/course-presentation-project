@@ -79,8 +79,16 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="py-20 px-6 bg-accent/30">
-        <div className="container mx-auto">
+      <section className="relative py-20 px-6 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img
+            src="https://cdn.poehali.dev/projects/a5effef7-dda4-4ae7-afee-f504e635df80/files/055d7148-ee75-48b0-b37c-4cd8e5daf8f3.jpg"
+            alt="Textile fabrics"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-white/85 backdrop-blur-[2px]"></div>
+        </div>
+        <div className="container mx-auto relative z-10">
           <div className="max-w-3xl mx-auto text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               Ткани, которые шьют с удовольствием
@@ -95,7 +103,7 @@ const Index = () => {
             {features.map((feature) => (
               <div
                 key={feature.title}
-                className="bg-card p-8 rounded-sm text-center hover:shadow-lg transition-shadow"
+                className="bg-white/80 backdrop-blur-sm p-8 rounded-sm text-center hover:shadow-xl hover:bg-white/95 transition-all"
               >
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-6">
                   <Icon name={feature.icon} size={32} className="text-primary" />
