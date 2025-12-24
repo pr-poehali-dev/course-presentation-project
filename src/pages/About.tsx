@@ -2,8 +2,31 @@ import Navigation from '@/components/Navigation';
 import Icon from '@/components/ui/icon';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
 
 const About = () => {
+  const [rating, setRating] = useState(0);
+  const [hoverRating, setHoverRating] = useState(0);
+  const [formData, setFormData] = useState({
+    name: '',
+    role: '',
+    text: '',
+  });
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log({ ...formData, rating });
+    setIsSubmitted(true);
+    setTimeout(() => {
+      setFormData({ name: '', role: '', text: '' });
+      setRating(0);
+      setIsSubmitted(false);
+    }, 3000);
+  };
+
   const values = [
     {
       icon: 'Award',
@@ -139,6 +162,75 @@ const About = () => {
                 </div>
               </div>
             ))}
+          </div>
+
+          <div className="mt-16 max-w-2xl mx-auto bg-white p-8 rounded-sm shadow-sm">
+            <h3 className="text-2xl font-bold mb-6 text-center">Оставьте свой отзыв</h3>
+            {isSubmitted ? (
+              <div className="text-center py-8">
+                <Icon name="CheckCircle" size={64} className="mx-auto mb-4 text-green-500" />
+                <p className="text-lg font-semibold mb-2">Спасибо за ваш отзыв!</p>
+                <p className="text-muted-foreground">Ваше мнение очень важно для нас</p>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div>
+                  <label className="block text-sm font-medium mb-2">Ваше имя</label>
+                  <Input
+                    required
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    placeholder="Иван Иванов"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium mb-2">Род деятельности (опционально)</label>
+                  <Input
+                    value={formData.role}
+                    onChange={(e) => setFormData({ ...formData, role: e.target.value })}
+                    placeholder="Дизайнер, швея, частный клиент..."
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium mb-2">Оценка</label>
+                  <div className="flex gap-2">
+                    {[1, 2, 3, 4, 5].map((star) => (
+                      <button
+                        key={star}
+                        type="button"
+                        onClick={() => setRating(star)}
+                        onMouseEnter={() => setHoverRating(star)}
+                        onMouseLeave={() => setHoverRating(0)}
+                        className="transition-transform hover:scale-110"
+                      >
+                        <Icon
+                          name="Star"
+                          size={32}
+                          className={`${
+                            star <= (hoverRating || rating)
+                              ? 'text-yellow-500 fill-yellow-500'
+                              : 'text-gray-300'
+                          }`}
+                        />
+                      </button>
+                    ))}
+                  </div>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium mb-2">Ваш отзыв</label>
+                  <Textarea
+                    required
+                    value={formData.text}
+                    onChange={(e) => setFormData({ ...formData, text: e.target.value })}
+                    placeholder="Расскажите о вашем опыте работы с нами..."
+                    rows={5}
+                  />
+                </div>
+                <Button type="submit" size="lg" className="w-full" disabled={rating === 0}>
+                  Отправить отзыв
+                </Button>
+              </form>
+            )}
           </div>
         </div>
       </section>
