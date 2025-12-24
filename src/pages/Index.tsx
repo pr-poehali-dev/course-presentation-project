@@ -46,8 +46,16 @@ const Index = () => {
     <div className="min-h-screen">
       <Navigation />
 
-      <section className="pt-32 pb-20 px-6">
-        <div className="container mx-auto">
+      <section className="relative pt-32 pb-20 px-6 min-h-[600px] flex items-center">
+        <div className="absolute inset-0 z-0">
+          <img
+            src="https://cdn.poehali.dev/projects/a5effef7-dda4-4ae7-afee-f504e635df80/files/8262d4bc-fa73-49b2-8e41-76b095e6d90d.jpg"
+            alt="Премиальные ткани"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/85 to-background/60"></div>
+        </div>
+        <div className="container mx-auto relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-5xl md:text-7xl font-bold mb-6 text-foreground">
               Добро пожаловать в Exooo Ткани
