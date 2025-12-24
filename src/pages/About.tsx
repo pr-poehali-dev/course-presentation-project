@@ -27,6 +27,27 @@ const About = () => {
     },
   ];
 
+  const testimonials = [
+    {
+      name: 'Анна Петрова',
+      role: 'Дизайнер интерьеров',
+      text: 'Exooo Ткани — мой любимый поставщик. Качество материалов безупречное, а выбор впечатляет. Консультанты помогают подобрать ткани под любой проект.',
+      rating: 5,
+    },
+    {
+      name: 'Михаил Соколов',
+      role: 'Владелец швейной мастерской',
+      text: 'Работаю с Exooo больше года. Цены адекватные, качество стабильное, доставка быстрая. Особенно радует ассортимент мебельных тканей и фурнитуры.',
+      rating: 5,
+    },
+    {
+      name: 'Елена Волкова',
+      role: 'Частный клиент',
+      text: 'Шью для себя и семьи. В Exooo всегда нахожу красивые ткани по разумной цене. Продавцы помогли выбрать материал для штор — получилось идеально!',
+      rating: 5,
+    },
+  ];
+
   return (
     <div className="min-h-screen">
       <Navigation />
@@ -91,6 +112,31 @@ const About = () => {
                 </div>
                 <h3 className="text-xl font-semibold mb-3">{value.title}</h3>
                 <p className="text-muted-foreground">{value.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 px-6 bg-accent/10">
+        <div className="container mx-auto max-w-6xl">
+          <h2 className="text-4xl font-bold mb-4 text-center">Отзывы наших клиентов</h2>
+          <p className="text-lg text-muted-foreground text-center mb-12 max-w-2xl mx-auto">
+            Нам доверяют профессионалы и любители шитья
+          </p>
+          <div className="grid md:grid-cols-3 gap-8">
+            {testimonials.map((testimonial) => (
+              <div key={testimonial.name} className="bg-white p-8 rounded-sm shadow-sm hover:shadow-md transition-shadow">
+                <div className="flex mb-4">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <Icon key={i} name="Star" size={20} className="text-yellow-500 fill-yellow-500" />
+                  ))}
+                </div>
+                <p className="text-muted-foreground mb-6 leading-relaxed">"{testimonial.text}"</p>
+                <div className="pt-4 border-t border-border">
+                  <p className="font-semibold text-foreground">{testimonial.name}</p>
+                  <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+                </div>
               </div>
             ))}
           </div>
