@@ -56,11 +56,11 @@ const Index = () => {
               Магазин, где легко найти материал для любой идеи и настроения
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/catalog">
+              <a href="https://shuman.b-catalog.ru/" target="_blank" rel="noopener noreferrer">
                 <Button size="lg" className="text-lg px-8">
                   Посмотреть каталог
                 </Button>
-              </Link>
+              </a>
               <Link to="/contacts">
                 <Button size="lg" variant="outline" className="text-lg px-8">
                   Связаться с нами
@@ -143,11 +143,11 @@ const Index = () => {
           <p className="text-xl mb-12 opacity-90">
             Для дома, интерьера, мастерской и любимого творчества
           </p>
-          <Link to="/catalog">
+          <a href="https://shuman.b-catalog.ru/" target="_blank" rel="noopener noreferrer">
             <Button size="lg" variant="secondary" className="text-lg px-8">
               Начать выбирать ткани
             </Button>
-          </Link>
+          </a>
         </div>
       </section>
 
