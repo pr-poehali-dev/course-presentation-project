@@ -51,8 +51,16 @@ const Contacts = () => {
     <div className="min-h-screen">
       <Navigation />
 
-      <section className="pt-32 pb-12 px-6 bg-accent/20">
-        <div className="container mx-auto">
+      <section className="relative pt-32 pb-12 px-6 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img
+            src="https://cdn.poehali.dev/projects/a5effef7-dda4-4ae7-afee-f504e635df80/files/4575948b-04ca-445c-aee5-81c4af3c310a.jpg"
+            alt="Contacts header"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-white/85"></div>
+        </div>
+        <div className="container mx-auto relative z-10">
           <h1 className="text-5xl md:text-6xl font-bold mb-6 text-center">Контакты</h1>
           <p className="text-xl text-muted-foreground text-center max-w-2xl mx-auto">
             Мы всегда рады ответить на ваши вопросы и помочь с выбором

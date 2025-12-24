@@ -31,8 +31,16 @@ const About = () => {
     <div className="min-h-screen">
       <Navigation />
 
-      <section className="pt-32 pb-12 px-6 bg-accent/20">
-        <div className="container mx-auto">
+      <section className="relative pt-32 pb-12 px-6 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img
+            src="https://cdn.poehali.dev/projects/a5effef7-dda4-4ae7-afee-f504e635df80/files/4575948b-04ca-445c-aee5-81c4af3c310a.jpg"
+            alt="About header"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-white/85"></div>
+        </div>
+        <div className="container mx-auto relative z-10">
           <h1 className="text-5xl md:text-6xl font-bold mb-6 text-center">О нас</h1>
           <p className="text-xl text-muted-foreground text-center max-w-2xl mx-auto">
             История Exooo Ткани — это любовь к качественным материалам и творчеству
@@ -61,12 +69,20 @@ const About = () => {
         </div>
       </section>
 
-      <section className="py-20 px-6 bg-accent/20">
-        <div className="container mx-auto">
+      <section className="relative py-20 px-6 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img
+            src="https://cdn.poehali.dev/projects/a5effef7-dda4-4ae7-afee-f504e635df80/files/d0a78d6f-04e4-41bf-8ec1-07500b659773.jpg"
+            alt="Values background"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-white/88 backdrop-blur-[2px]"></div>
+        </div>
+        <div className="container mx-auto relative z-10">
           <h2 className="text-4xl font-bold mb-12 text-center">Наши ценности</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
             {values.map((value) => (
-              <div key={value.title} className="bg-card p-8 rounded-sm text-center">
+              <div key={value.title} className="bg-white/80 backdrop-blur-sm p-8 rounded-sm text-center hover:bg-white/95 transition-all">
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-6">
                   <Icon name={value.icon} size={32} className="text-primary" />
                 </div>

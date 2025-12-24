@@ -48,8 +48,16 @@ const Gallery = () => {
     <div className="min-h-screen">
       <Navigation />
 
-      <section className="pt-32 pb-12 px-6 bg-accent/20">
-        <div className="container mx-auto">
+      <section className="relative pt-32 pb-12 px-6 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img
+            src="https://cdn.poehali.dev/projects/a5effef7-dda4-4ae7-afee-f504e635df80/files/682c04ea-921a-403e-ab3b-262a87f7ac88.jpg"
+            alt="Gallery header"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-white/85"></div>
+        </div>
+        <div className="container mx-auto relative z-10">
           <h1 className="text-5xl md:text-6xl font-bold mb-6 text-center">Галерея</h1>
           <p className="text-xl text-muted-foreground text-center max-w-2xl mx-auto">
             Вдохновляющие примеры использования наших тканей в интерьере
@@ -101,8 +109,16 @@ const Gallery = () => {
         </div>
       )}
 
-      <section className="py-20 px-6 bg-accent/20">
-        <div className="container mx-auto max-w-4xl text-center">
+      <section className="relative py-20 px-6 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img
+            src="https://cdn.poehali.dev/projects/a5effef7-dda4-4ae7-afee-f504e635df80/files/055d7148-ee75-48b0-b37c-4cd8e5daf8f3.jpg"
+            alt="Inspiration background"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-white/88 backdrop-blur-[2px]"></div>
+        </div>
+        <div className="container mx-auto max-w-4xl text-center relative z-10">
           <Icon name="Sparkles" size={48} className="mx-auto mb-6 text-primary" />
           <h2 className="text-4xl font-bold mb-6">Воплотите свои идеи</h2>
           <p className="text-lg text-muted-foreground mb-8">
