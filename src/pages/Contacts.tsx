@@ -168,7 +168,7 @@ const Contacts = () => {
 
       <footer className="py-12 px-6 border-t border-border">
         <div className="container mx-auto text-center text-muted-foreground">
-          © 2024 Exooo Ткани. Все права защищены.
+          © 2025 Exooo Ткани. Все права защищены.
         </div>
       </footer>
     </div>
