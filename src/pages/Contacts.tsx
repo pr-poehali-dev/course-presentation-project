@@ -33,17 +33,17 @@ const Contacts = () => {
     {
       icon: 'Phone',
       title: 'Телефон',
-      details: ['+7 (495) 123-45-67', '+7 (925) 987-65-43'],
+      details: ['+7 978 014 15 15'],
     },
     {
       icon: 'Mail',
       title: 'Email',
-      details: ['info@exooo-tkani.ru', 'order@exooo-tkani.ru'],
+      details: ['exooo@yandex.ru'],
     },
     {
       icon: 'Clock',
       title: 'Режим работы',
-      details: ['Пн-Пт: 10:00 - 20:00', 'Сб-Вс: 11:00 - 19:00'],
+      details: ['Ежедневно с 9:00 до 19:00'],
     },
   ];
 
