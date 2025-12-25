@@ -38,7 +38,7 @@ const Contacts = () => {
     {
       icon: 'Mail',
       title: 'Email',
-      details: ['exooo@yandex.ru'],
+      details: ['exoootkan@yandex.ru'],
     },
     {
       icon: 'Clock',
