@@ -108,10 +108,7 @@ const About = () => {
               износостойкие мебельные ткани, а также фурнитуру — всё, что нужно, чтобы
               задумка получилась аккуратной, красивой и долговечной.
             </p>
-            <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-              Exooo Ткани — это место, где вдохновение превращается в готовое изделие:
-              для дома, интерьера, мастерской и любимого творчества.
-            </p>
+            <p className="text-lg text-muted-foreground leading-relaxed mb-6"></p>
           </div>
         </div>
       </section>
