@@ -29,16 +29,24 @@ const Index = () => {
 
   const collections = [
     {
-      title: 'Премиальные портьеры',
-      image: 'https://cdn.poehali.dev/projects/a5effef7-dda4-4ae7-afee-f504e635df80/files/dc66a218-e2f5-4d39-9065-778e43855a9c.jpg',
+      title: 'Элегантные кружева',
+      image: 'https://cdn.poehali.dev/files/photo_2_2025-12-27_23-53-49.jpg',
     },
     {
-      title: 'Интерьерный текстиль',
-      image: 'https://cdn.poehali.dev/projects/a5effef7-dda4-4ae7-afee-f504e635df80/files/e40164bf-7970-4c05-9faf-2a8775f5dd69.jpg',
+      title: 'Сияющие пайетки',
+      image: 'https://cdn.poehali.dev/files/photo_3_2025-12-27_23-53-49.jpg',
     },
     {
-      title: 'Мебельные коллекции',
-      image: 'https://cdn.poehali.dev/projects/a5effef7-dda4-4ae7-afee-f504e635df80/files/c67920cf-4348-4963-b505-73d39b58d4da.jpg',
+      title: 'Изысканная вышивка',
+      image: 'https://cdn.poehali.dev/files/photo_4_2025-12-27_23-53-49.jpg',
+    },
+    {
+      title: 'Драгоценные детали',
+      image: 'https://cdn.poehali.dev/files/photo_1_2025-12-27_23-53-49.jpg',
+    },
+    {
+      title: 'Блестящее кружево',
+      image: 'https://cdn.poehali.dev/files/photo_5_2025-12-27_23-53-49.jpg',
     },
   ];
 
@@ -135,20 +143,20 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-6 max-w-7xl mx-auto">
             {collections.map((collection) => (
               <div
                 key={collection.title}
                 className="group cursor-pointer overflow-hidden rounded-sm"
               >
-                <div className="relative h-96 overflow-hidden">
+                <div className="relative h-80 overflow-hidden">
                   <img
                     src={collection.image}
                     alt={collection.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
-                    <h3 className="text-2xl font-semibold text-white">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-4">
+                    <h3 className="text-lg font-semibold text-white">
                       {collection.title}
                     </h3>
                   </div>
