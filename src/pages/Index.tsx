@@ -2,8 +2,10 @@ import Navigation from '@/components/Navigation';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import Icon from '@/components/ui/icon';
+import { useState } from 'react';
 
 const Index = () => {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const features = [
     {
       icon: 'Sparkles',
@@ -148,6 +150,7 @@ const Index = () => {
               <div
                 key={collection.title}
                 className="group cursor-pointer overflow-hidden rounded-sm"
+                onClick={() => setSelectedImage(collection.image)}
               >
                 <div className="relative h-80 overflow-hidden">
                   <img
@@ -190,6 +193,28 @@ const Index = () => {
           </a>
         </div>
       </section>
+
+      {selectedImage && (
+        <div 
+          className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4 cursor-pointer"
+          onClick={() => setSelectedImage(null)}
+        >
+          <div className="relative max-w-7xl max-h-[90vh] w-full h-full flex items-center justify-center">
+            <button
+              className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors"
+              onClick={() => setSelectedImage(null)}
+            >
+              <Icon name="X" size={32} />
+            </button>
+            <img
+              src={selectedImage}
+              alt="Полное изображение"
+              className="max-w-full max-h-full object-contain"
+              onClick={(e) => e.stopPropagation()}
+            />
+          </div>
+        </div>
+      )}
 
       <footer className="py-12 px-6 border-t border-border">
         <div className="container mx-auto">
