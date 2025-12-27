@@ -162,11 +162,11 @@ const Index = () => {
       <section className="relative py-20 px-6 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src="https://cdn.poehali.dev/projects/a5effef7-dda4-4ae7-afee-f504e635df80/files/d0a78d6f-04e4-41bf-8ec1-07500b659773.jpg"
+            src="https://cdn.poehali.dev/files/a33b7556bd329cb620a50f60044effb2.jpg"
             alt="Premium fabrics"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-primary/95"></div>
+          <div className="absolute inset-0 bg-primary/80"></div>
         </div>
         <div className="container mx-auto max-w-4xl text-center relative z-10">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
