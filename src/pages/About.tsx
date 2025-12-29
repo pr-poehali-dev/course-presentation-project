@@ -120,7 +120,7 @@ const About = () => {
             alt="Values background"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-white/88 backdrop-blur-[2px]"></div>
+          <div className="absolute inset-0 bg-primary/5"></div>
         </div>
         <div className="container mx-auto relative z-10">
           <h2 className="text-4xl font-bold mb-12 text-center">Наши ценности</h2>
