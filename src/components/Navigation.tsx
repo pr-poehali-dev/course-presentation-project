@@ -9,6 +9,7 @@ const Navigation = () => {
     { name: 'Главная', path: '/' },
     { name: 'Каталог', path: '/catalog' },
     { name: 'Галерея', path: '/gallery' },
+    { name: 'Блог', path: '/blog' },
     { name: 'О нас', path: '/about' },
     { name: 'Контакты', path: '/contacts' },
   ];
