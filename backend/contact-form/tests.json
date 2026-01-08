@@ -1,0 +1,48 @@
+{
+  "tests": [
+    {
+      "name": "Успешная отправка формы",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "name": "Иван Иванов",
+        "phone": "+7 (999) 123-45-67",
+        "message": "Хочу заказать ткани для штор"
+      },
+      "expectedStatus": 200,
+      "expectedBody": {
+        "success": true,
+        "message": "string"
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Отправка без имени",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "phone": "+7 (999) 123-45-67",
+        "message": "Сообщение"
+      },
+      "expectedStatus": 400,
+      "expectedBody": {
+        "error": "Имя и телефон обязательны"
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Отправка без телефона",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "name": "Иван",
+        "message": "Сообщение"
+      },
+      "expectedStatus": 400,
+      "expectedBody": {
+        "error": "Имя и телефон обязательны"
+      },
+      "bodyMatcher": "partial"
+    }
+  ]
+}
