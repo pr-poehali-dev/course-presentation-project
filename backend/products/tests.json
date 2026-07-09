@@ -1,0 +1,41 @@
+{
+  "tests": [
+    {
+      "name": "Получение списка товаров",
+      "method": "GET",
+      "path": "/",
+      "expectedStatus": 200
+    },
+    {
+      "name": "Создание товара",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "action": "create",
+        "name": "Тестовая ткань",
+        "category": "curtains",
+        "price": "от 1 000 ₽/м",
+        "description": "Описание тестовой ткани"
+      },
+      "expectedStatus": 200,
+      "expectedBody": {
+        "success": true
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Создание без названия",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "action": "create",
+        "category": "curtains"
+      },
+      "expectedStatus": 400,
+      "expectedBody": {
+        "error": "Название обязательно"
+      },
+      "bodyMatcher": "partial"
+    }
+  ]
+}

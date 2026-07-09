@@ -1,5 +1,7 @@
 {
-  "contact-form": "https://functions.poehali.dev/75520a4c-c5b2-4047-b23b-83089b22152d",
-  "robokassa-robokassa-webhook": "https://functions.poehali.dev/c964f667-4c4f-4137-b966-e3a7dfe33624",
-  "robokassa-robokassa": "https://functions.poehali.dev/bf1892b9-892c-459f-aa70-4c595830c380"
+  "robokassa-robokassa-webhook": "https://functions.poehali.dev/798601e7-717e-46e9-9013-8afb831d9c6e",
+  "robokassa-robokassa": "https://functions.poehali.dev/91d5fcfc-cd17-46a1-820e-c1f16a96cb5d",
+  "contact-form": "https://functions.poehali.dev/91a999f8-9ce2-4dd3-a8e4-9713f39086d2",
+  "import-excel": "https://functions.poehali.dev/0471b6d9-d7c0-4f38-9af4-1f2504c2d006",
+  "products": "https://functions.poehali.dev/c2b3e09f-639b-44fd-b5dd-5a91d0706a03"
 }

@@ -1,10 +1,23 @@
 import Navigation from '@/components/Navigation';
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+
+const PRODUCTS_URL = 'https://functions.poehali.dev/c2b3e09f-639b-44fd-b5dd-5a91d0706a03';
+
+interface Product {
+  id: number;
+  name: string;
+  category: string;
+  price: string;
+  description: string;
+  image: string;
+}
 
 const Catalog = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
+  const [products, setProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(true);
 
   const categories = [
     { id: 'all', name: 'Все ткани' },
@@ -15,56 +28,16 @@ const Catalog = () => {
     { id: 'accessories', name: 'Фурнитура' },
   ];
 
-  const products = [
-    {
-      id: 1,
-      name: 'Велюр премиум',
-      category: 'curtains',
-      price: 'от 2 500 ₽/м',
-      description: 'Роскошный велюр для портьер',
-      image: 'https://cdn.poehali.dev/projects/a5effef7-dda4-4ae7-afee-f504e635df80/files/dc66a218-e2f5-4d39-9065-778e43855a9c.jpg',
-    },
-    {
-      id: 2,
-      name: 'Шелк натуральный',
-      category: 'curtains',
-      price: 'от 3 800 ₽/м',
-      description: 'Изысканный натуральный шелк',
-      image: 'https://cdn.poehali.dev/projects/a5effef7-dda4-4ae7-afee-f504e635df80/files/e40164bf-7970-4c05-9faf-2a8775f5dd69.jpg',
-    },
-    {
-      id: 3,
-      name: 'Органза с вышивкой',
-      category: 'tulle',
-      price: 'от 1 800 ₽/м',
-      description: 'Легкая органза с узором',
-      image: 'https://cdn.poehali.dev/projects/a5effef7-dda4-4ae7-afee-f504e635df80/files/c67920cf-4348-4963-b505-73d39b58d4da.jpg',
-    },
-    {
-      id: 4,
-      name: 'Жаккард мебельный',
-      category: 'furniture',
-      price: 'от 2 200 ₽/м',
-      description: 'Износостойкий жаккард',
-      image: 'https://cdn.poehali.dev/projects/a5effef7-dda4-4ae7-afee-f504e635df80/files/dc66a218-e2f5-4d39-9065-778e43855a9c.jpg',
-    },
-    {
-      id: 5,
-      name: 'Лен интерьерный',
-      category: 'home',
-      price: 'от 1 400 ₽/м',
-      description: 'Натуральный лен для дома',
-      image: 'https://cdn.poehali.dev/projects/a5effef7-dda4-4ae7-afee-f504e635df80/files/e40164bf-7970-4c05-9faf-2a8775f5dd69.jpg',
-    },
-    {
-      id: 6,
-      name: 'Бархат коллекция',
-      category: 'curtains',
-      price: 'от 3 200 ₽/м',
-      description: 'Премиальный бархат',
-      image: 'https://cdn.poehali.dev/projects/a5effef7-dda4-4ae7-afee-f504e635df80/files/c67920cf-4348-4963-b505-73d39b58d4da.jpg',
-    },
-  ];
+  const placeholderImage =
+    'https://cdn.poehali.dev/projects/a5effef7-dda4-4ae7-afee-f504e635df80/files/dc66a218-e2f5-4d39-9065-778e43855a9c.jpg';
+
+  useEffect(() => {
+    fetch(PRODUCTS_URL)
+      .then((res) => res.json())
+      .then((data) => setProducts(data.products || []))
+      .catch(() => setProducts([]))
+      .finally(() => setLoading(false));
+  }, []);
 
   const filteredProducts =
     selectedCategory === 'all'
@@ -109,33 +82,41 @@ const Catalog = () => {
             ))}
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-            {filteredProducts.map((product) => (
-              <div
-                key={product.id}
-                className="group bg-card rounded-sm overflow-hidden hover:shadow-xl transition-shadow"
-              >
-                <div className="relative h-80 overflow-hidden">
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-2xl font-semibold mb-2">{product.name}</h3>
-                  <p className="text-muted-foreground mb-4">{product.description}</p>
-                  <div className="flex items-center justify-between">
-                    <span className="text-xl font-semibold">{product.price}</span>
-                    <Button>
-                      <Icon name="ShoppingCart" size={18} className="mr-2" />
-                      Заказать
-                    </Button>
+          {loading ? (
+            <p className="text-center text-muted-foreground py-12">Загрузка каталога...</p>
+          ) : filteredProducts.length === 0 ? (
+            <p className="text-center text-muted-foreground py-12">
+              В этой категории пока нет товаров
+            </p>
+          ) : (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+              {filteredProducts.map((product) => (
+                <div
+                  key={product.id}
+                  className="group bg-card rounded-sm overflow-hidden hover:shadow-xl transition-shadow"
+                >
+                  <div className="relative h-80 overflow-hidden">
+                    <img
+                      src={product.image || placeholderImage}
+                      alt={product.name}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-2xl font-semibold mb-2">{product.name}</h3>
+                    <p className="text-muted-foreground mb-4">{product.description}</p>
+                    <div className="flex items-center justify-between">
+                      <span className="text-xl font-semibold">{product.price}</span>
+                      <Button>
+                        <Icon name="ShoppingCart" size={18} className="mr-2" />
+                        Заказать
+                      </Button>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
