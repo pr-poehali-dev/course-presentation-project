@@ -7,6 +7,8 @@ from openpyxl import load_workbook
 
 
 CATEGORY_MAP = {
+    'ткани': 'fabrics',
+    'ткань': 'fabrics',
     'портьерные': 'curtains',
     'портьерные ткани': 'curtains',
     'портьеры': 'curtains',

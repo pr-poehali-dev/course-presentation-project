@@ -21,6 +21,7 @@ const Catalog = () => {
 
   const categories = [
     { id: 'all', name: 'Все ткани' },
+    { id: 'fabrics', name: 'Ткани' },
     { id: 'curtains', name: 'Портьерные ткани' },
     { id: 'tulle', name: 'Тюлевые ткани' },
     { id: 'furniture', name: 'Мебельные ткани' },

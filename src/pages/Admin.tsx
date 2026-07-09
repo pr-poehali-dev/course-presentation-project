@@ -17,6 +17,7 @@ interface Product {
 }
 
 const categoryNames: Record<string, string> = {
+  fabrics: 'Ткани',
   curtains: 'Портьерные',
   tulle: 'Тюлевые',
   furniture: 'Мебельные',
@@ -147,7 +148,7 @@ const Admin = () => {
                   Формат столбцов: <strong>Название | Категория | Цена | Описание</strong>
                 </p>
                 <p className="text-sm text-muted-foreground">
-                  Категории: Портьерные, Тюлевые, Мебельные, Домашний текстиль, Фурнитура
+                  Категории: Ткани, Портьерные, Тюлевые, Мебельные, Домашний текстиль, Фурнитура
                 </p>
               </div>
             </div>
